@@ -10,7 +10,7 @@
     "version": "12.0.1.0.0",
     "auto_install": False,
     "demo": [],
-    "website": "http://open-net.ch",
+    "website": "https://github.com/OCA/l10n-switzerland",
     "license": "AGPL-3",
     "data": [
         "security/ir.model.access.csv",

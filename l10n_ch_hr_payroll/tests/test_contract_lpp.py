@@ -2,8 +2,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import logging
-import odoo.tests.common as common
 from datetime import datetime, timedelta
+
+import odoo.tests.common as common
 from odoo.fields import Date
 
 _logger = logging.getLogger(__name__)
@@ -85,9 +86,7 @@ class TestContractLPP(common.TransactionCase):
         # I create a contract for "Richard"
         self.richard_contract = self.env["hr.contract"].create(
             {
-                "date_end": Date.to_string(
-                    (datetime.now() + timedelta(days=365))
-                ),
+                "date_end": Date.to_string(datetime.now() + timedelta(days=365)),
                 "date_start": Date.today(),
                 "name": "Contract for Richard",
                 "wage_fulltime": 7500.0,
@@ -149,9 +148,7 @@ class TestContractLPP(common.TransactionCase):
 
         # OnChange working days and non working days to calcule working rate
         self.richard_payslip._onchange_working_non_working_days()
-        self.assertEqual(
-            self.richard_payslip.working_rate, (26 - 12) / 26.0 * 100
-        )
+        self.assertEqual(self.richard_payslip.working_rate, (26 - 12) / 26.0 * 100)
 
         # I click on 'Compute Sheet' button on payslip
         self.richard_payslip.compute_sheet()
@@ -206,9 +203,7 @@ class TestContractLPP(common.TransactionCase):
 
             # ALFA
             if line.salary_rule_id.id == self.alfa:
-                self.assertEqual(
-                    line.python_amount, round((2 * 250) + 330 + 120, 2)
-                )
+                self.assertEqual(line.python_amount, round((2 * 250) + 330 + 120, 2))
                 self.assertEqual(line.python_rate, 100)
                 self.assertEqual(line.total, 950)
 
@@ -277,18 +272,14 @@ class TestContractLPP(common.TransactionCase):
             # OBP (LPP)
             if line.salary_rule_id.id == self.lpp_c:
                 calc_lpp = (
-                    (((7500.0 * 12) - 24675) / 12)
-                    * (20.0 / 100)
-                    * ((26 - 12) / 26.0)
+                    (((7500.0 * 12) - 24675) / 12) * (20.0 / 100) * ((26 - 12) / 26.0)
                 )
                 self.assertEqual(line.python_amount, round(calc_lpp, 2))
                 self.assertEqual(line.python_rate, -8.650)
                 self.assertEqual(line.total, -50.71)
             if line.salary_rule_id.id == self.lpp_e:
                 calc_lpp = (
-                    (((7500.0 * 12) - 24675) / 12)
-                    * (20.0 / 100)
-                    * ((26 - 12) / 26.0)
+                    (((7500.0 * 12) - 24675) / 12) * (20.0 / 100) * ((26 - 12) / 26.0)
                 )
                 self.assertEqual(line.python_amount, round(calc_lpp, 2))
                 self.assertEqual(line.python_rate, -8.650)

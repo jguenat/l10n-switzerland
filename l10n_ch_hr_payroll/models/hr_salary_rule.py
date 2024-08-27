@@ -1,7 +1,7 @@
 # Copyright 2017 Open Net Sàrl
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models, api
+from odoo import api, fields, models
 from odoo.tools.safe_eval import safe_eval
 
 
@@ -44,9 +44,7 @@ class HrSalaryRule(models.Model):
                         )
 
                         if rule_to_modify.id == rule.id:
-                            rule.percentage = getattr(
-                                rule.company_id, rule_from
-                            )
+                            rule.percentage = getattr(rule.company_id, rule_from)
 
     @api.multi
     def _compute_rule(self, localdict):

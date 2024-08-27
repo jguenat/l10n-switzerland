@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import logging
+
 import odoo.tests.common as common
 
 _logger = logging.getLogger(__name__)
@@ -208,9 +209,7 @@ class TestWizard(common.TransactionCase):
         )
         self.assertEqual(
             True,
-            rules_acc_equal_test(
-                self, list_rule_basic, "2000", self.account_2
-            ),
+            rules_acc_equal_test(self, list_rule_basic, "2000", self.account_2),
         )
         self.assertEqual(
             True,
@@ -218,45 +217,31 @@ class TestWizard(common.TransactionCase):
         )
         self.assertEqual(
             True,
-            rules_acc_equal_test(
-                self, list_rule_avs_d, "2200", self.account_4
-            ),
+            rules_acc_equal_test(self, list_rule_avs_d, "2200", self.account_4),
         )
         self.assertEqual(
             True,
-            rules_acc_equal_test(
-                self, list_rule_avs_c, "5700", self.account_5
-            ),
+            rules_acc_equal_test(self, list_rule_avs_c, "5700", self.account_5),
         )
         self.assertEqual(
             True,
-            rules_acc_equal_test(
-                self, list_rule_lpp_d, "2201", self.account_6
-            ),
+            rules_acc_equal_test(self, list_rule_lpp_d, "2201", self.account_6),
         )
         self.assertEqual(
             True,
-            rules_acc_equal_test(
-                self, list_rule_lpp_c, "5700", self.account_7
-            ),
+            rules_acc_equal_test(self, list_rule_lpp_c, "5700", self.account_7),
         )
         self.assertEqual(
             True,
-            rules_acc_equal_test(
-                self, list_rule_laa_c, "2261", self.account_8
-            ),
+            rules_acc_equal_test(self, list_rule_laa_c, "2261", self.account_8),
         )
         self.assertEqual(
             True,
-            rules_acc_equal_test(
-                self, list_rule_staff_ins, "5900", self.account_9
-            ),
+            rules_acc_equal_test(self, list_rule_staff_ins, "5900", self.account_9),
         )
         self.assertEqual(
             True,
-            rules_acc_equal_test(
-                self, list_rule_other_costs, "5800", self.account_10
-            ),
+            rules_acc_equal_test(self, list_rule_other_costs, "5800", self.account_10),
         )
         _logger.debug("OK : Test Saved Rules")
 

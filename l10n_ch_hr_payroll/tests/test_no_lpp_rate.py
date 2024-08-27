@@ -2,8 +2,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import logging
-import odoo.tests.common as common
 from datetime import datetime, timedelta
+
+import odoo.tests.common as common
 from odoo.fields import Date
 
 _logger = logging.getLogger(__name__)
@@ -76,9 +77,7 @@ class TestNoLPP(common.TransactionCase):
         # I create a contract for "Richard"
         self.richard_contract = self.env["hr.contract"].create(
             {
-                "date_end": Date.to_string(
-                    (datetime.now() + timedelta(days=365))
-                ),
+                "date_end": Date.to_string(datetime.now() + timedelta(days=365)),
                 "date_start": Date.today(),
                 "name": "Contract for Richard",
                 "wage": 50,

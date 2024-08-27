@@ -1,8 +1,9 @@
 # Copyright 2017 Open Net S�rl
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo import api, fields, models
+
 import odoo.addons.decimal_precision as dp
-from odoo import models, fields, api
 
 
 class HrPayrollConfig(models.TransientModel):
@@ -44,9 +45,7 @@ class HrPayrollConfig(models.TransientModel):
 
     @api.model
     def _get_default_net(self):
-        return self.search_account_by_rule(
-            [("l10n_ch_hr_payroll.NET_CH", "credit")]
-        )
+        return self.search_account_by_rule([("l10n_ch_hr_payroll.NET_CH", "credit")])
 
     @api.model
     def _get_default_provision13(self):
@@ -96,9 +95,7 @@ class HrPayrollConfig(models.TransientModel):
 
     @api.model
     def _get_default_lpp_c(self):
-        return self.search_account_by_rule(
-            [("l10n_ch_hr_payroll.LPP_C", "credit")]
-        )
+        return self.search_account_by_rule([("l10n_ch_hr_payroll.LPP_C", "credit")])
 
     @api.model
     def _get_default_laa_c(self):
@@ -122,9 +119,7 @@ class HrPayrollConfig(models.TransientModel):
 
     @api.model
     def _get_default_other_costs(self):
-        return self.search_account_by_rule(
-            [("l10n_ch_hr_payroll.FADMIN", "debit")]
-        )
+        return self.search_account_by_rule([("l10n_ch_hr_payroll.FADMIN", "debit")])
 
     @api.model
     def search_account_by_rule(self, rules_types):
@@ -405,9 +400,7 @@ class HrPayrollConfig(models.TransientModel):
             company_id.write({value: value_field})
 
     def delete_lpp_contracts(self):
-        ids_to_unlink = self.env["lpp.contract"].search(
-            [("company_id", "=", False)]
-        )
+        ids_to_unlink = self.env["lpp.contract"].search([("company_id", "=", False)])
         ids_to_unlink.unlink()
 
     # save and create configs

@@ -2,8 +2,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import logging
-import odoo.tests.common as common
 from datetime import datetime, timedelta
+
+import odoo.tests.common as common
 from odoo.fields import Date
 
 _logger = logging.getLogger(__name__)
@@ -76,9 +77,7 @@ class TestMaxLPP(common.TransactionCase):
         # I create a contract for "Richard"
         self.richard_contract = self.env["hr.contract"].create(
             {
-                "date_end": Date.to_string(
-                    (datetime.now() + timedelta(days=365))
-                ),
+                "date_end": Date.to_string(datetime.now() + timedelta(days=365)),
                 "date_start": Date.today(),
                 "name": "Contract for Richard",
                 "wage_fulltime": 20000.0,
@@ -146,9 +145,7 @@ class TestMaxLPP(common.TransactionCase):
             [("salary_rule_id", "in", self.rules_for_structure)]
         )
 
-        _logger.debug(
-            "Test w/o contract LPP and Salary above LPP MAX and SOURCE TAX"
-        )
+        _logger.debug("Test w/o contract LPP and Salary above LPP MAX and SOURCE TAX")
 
         for line in rule_lines:
             # BASIC CH
@@ -185,9 +182,7 @@ class TestMaxLPP(common.TransactionCase):
 
             # ALFA
             if line.salary_rule_id.id == self.alfa:
-                self.assertEqual(
-                    line.python_amount, round((2 * 250) + 330 + 120, 2)
-                )
+                self.assertEqual(line.python_amount, round((2 * 250) + 330 + 120, 2))
                 self.assertEqual(line.python_rate, 100)
                 self.assertEqual(line.total, 950)
 

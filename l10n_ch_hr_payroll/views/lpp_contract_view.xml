@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record model="ir.ui.view" id="view_lpp_contract_form">
         <field name="name">lpp.contract.form</field>
@@ -6,8 +6,8 @@
         <field name="arch" type="xml">
             <form string="OBP Contract">
                 <group>
-                    <field name="name"/>
-                    <field name="dc_amount"/>
+                    <field name="name" />
+                    <field name="dc_amount" />
                 </group>
             </form>
         </field>
