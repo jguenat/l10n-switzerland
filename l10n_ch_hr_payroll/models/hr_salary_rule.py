@@ -16,7 +16,6 @@ class HrSalaryRule(models.Model):
     )
     amount_base = fields.Float(required=False)
 
-    @api.multi
     def _compute_percentage_from_company(self):
         list_fields_per = {
             "fadmin_per": ["FADMIN"],
@@ -46,7 +45,6 @@ class HrSalaryRule(models.Model):
                         if rule_to_modify.id == rule.id:
                             rule.percentage = getattr(rule.company_id, rule_from)
 
-    @api.multi
     def _compute_rule(self, localdict):
         res = super()._compute_rule(localdict)
 

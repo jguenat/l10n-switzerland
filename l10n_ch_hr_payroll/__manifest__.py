@@ -6,10 +6,9 @@
     "summary": "Switzerland Payroll Rules",
     "category": "Localization",
     "author": "Open Net Sàrl,Odoo Community Association (OCA)",
-    "depends": ["hr_payroll_account", "hr_contract", "hr_attendance"],
-    "version": "12.0.1.0.0",
-    "auto_install": False,
-    "demo": [],
+    "maintainers": ["jguenat"],
+    "depends": ["payroll_account", "hr_contract", "hr_attendance"],
+    "version": "16.0.1.0.0",
     "website": "https://github.com/OCA/l10n-switzerland",
     "license": "AGPL-3",
     "data": [
@@ -25,5 +24,4 @@
         "views/hr_payslip_line_view.xml",
         "views/lpp_contract_view.xml",
     ],
-    "installable": True,
 }

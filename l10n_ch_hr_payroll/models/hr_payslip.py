@@ -31,7 +31,6 @@ class HrPayslip(models.Model):
         string="13th salary to add", digits=dp.get_precision("Account")
     )
 
-    @api.multi
     def _compute_worked_hours(self):
         for payslip in self:
             if payslip.contract_id.wage_type == "hour":
@@ -76,7 +75,6 @@ class HrPayslip(models.Model):
             elif payslip.working_days == 0 and payslip.non_working_days == 0:
                 payslip.working_rate = 100
 
-    @api.multi
     def compute_sheet(self):
         res = {}
         for payslip in self:

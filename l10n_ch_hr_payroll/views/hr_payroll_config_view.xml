@@ -14,28 +14,23 @@
                             <field
                                 name="basic"
                                 domain="[
-                                ('user_type_id', '=', %(account.data_account_type_expenses)d),
+                                ('account_type', '=', 'expense'),
                                 ('code', 'like', '5___')]"
                             />
                             <field
                                 name="net"
                                 domain="[
-                                ('user_type_id', '=', %(account.data_account_type_payable)d),
+                                ('account_type', '=', 'liability_payable'),
                                 ('code', 'like', '20__')]"
                             />
                             <field
                                 name="cc"
                                 domain="[
-                                ('user_type_id', '=', %(account.data_account_type_expenses)d),
+                                ('account_type', '=', 'expense'),
                                 ('code', 'like', '5___')]"
                             />
                             <field name="yearlySalaries" />
-                            <field
-                                name="provision13"
-                                domain="[
-                                ('user_type_id', '=', %(account.data_account_type_payable)d),
-                                ('code', 'like', '22__')]"
-                            />
+                            <field name="provision13" />
                         </group>
                         <div class="oe_title">
                             <h1>Standard Rules</h1>
@@ -45,13 +40,13 @@
                                 <field
                                     name="avs_d"
                                     domain="[
-                                ('user_type_id', '=', %(account.data_account_type_current_liabilities)d),
+                                ('account_type', '=', 'liability_current'),
                                 ('code', 'like', '22__')]"
                                 />
                                 <field
                                     name="avs_c"
                                     domain="[
-                                ('user_type_id', '=', %(account.data_account_type_expenses)d),
+                                ('account_type', '=', 'expense'),
                                 ('code', 'like', '5___')]"
                                 />
                             </group>
@@ -59,13 +54,13 @@
                                 <field
                                     name="lpp_d"
                                     domain="[
-                                ('user_type_id', '=', %(account.data_account_type_current_liabilities)d),
+                                ('account_type', '=', 'liability_current'),
                                 ('code', 'like', '22__')]"
                                 />
                                 <field
                                     name="lpp_c"
                                     domain="[
-                                ('user_type_id', '=', %(account.data_account_type_expenses)d),
+                                ('account_type', '=', 'expense'),
                                 ('code', 'like', '5___')]"
                                 />
                             </group>
@@ -74,7 +69,7 @@
                             <field
                                 name="laa_c"
                                 domain="[
-                                ('user_type_id', '=', %(account.data_account_type_current_liabilities)d),
+                                ('account_type', '=', 'liability_current'),
                                 ('code', 'like', '22__')]"
                             />
                         </group>
@@ -85,13 +80,13 @@
                             <field
                                 name="staff_ins"
                                 domain="[
-                                ('user_type_id', '=', %(account.data_account_type_expenses)d),
+                                ('account_type', '=', 'expense'),
                                 ('code', 'like', '5___')]"
                             />
                             <field
                                 name="other_costs"
                                 domain="[
-                                ('user_type_id', '=', %(account.data_account_type_expenses)d),
+                                ('account_type', '=', 'expense'),
                                 ('code', 'like', '5___')]"
                             />
                         </group>
@@ -176,7 +171,6 @@
         <field name="name">Payroll Configuration</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.payroll.config</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="view_hr_payroll_config_form" />
         <field name="target">new</field>
@@ -184,10 +178,10 @@
 
     <menuitem
         name="Payroll Configuration"
-        parent="hr_payroll.menu_hr_payroll_configuration"
+        parent="payroll.payroll_menu_configuration"
         id="menu_hr_payroll_config"
         action="action_view_hr_payroll_config"
-        groups="hr_payroll.group_hr_payroll_manager"
+        groups="payroll.group_payroll_manager"
         sequence="40"
     />
 </odoo>

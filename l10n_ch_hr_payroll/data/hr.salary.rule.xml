@@ -8,7 +8,7 @@
         <field name="name">UI</field>
         <field name="quantity">1</field>
         <field name="sequence">120</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
     </record>
     <record id="AC_C" model="hr.salary.rule">
         <field name="amount_select">code</field>
@@ -27,7 +27,7 @@ result = ((categories.BASIC + categories.ALW)*per_in_limit)
         <field name="quantity">1</field>
         <field name="condition_range">categories.BASIC + categories.ALW</field>
         <field name="sequence">121</field>
-        <field name="category_id" ref="hr_payroll.COMP" />
+        <field name="category_id" ref="COMP" />
         <field name="parent_rule_id" ref="AC" />
     </record>
     <record id="AC_E" model="hr.salary.rule">
@@ -47,7 +47,7 @@ result = ((categories.BASIC + categories.ALW)*per_in_limit)
         <field name="quantity">1</field>
         <field name="condition_range">categories.BASIC + categories.ALW</field>
         <field name="sequence">121</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
         <field name="parent_rule_id" ref="AC" />
     </record>
     <record id="AC_SOL" model="hr.salary.rule">
@@ -60,7 +60,7 @@ result = (categories.BASIC + categories.ALW) &gt; employee.company_id.ac_limit a
         <field name="name">UI SOL</field>
         <field name="quantity">1</field>
         <field name="sequence">122</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
     </record>
     <record id="AC_C_SOL" model="hr.salary.rule">
         <field name="amount_select">code</field>
@@ -83,7 +83,7 @@ result = (((categories.BASIC + categories.ALW) - limit)*per_off_limit)
         <field name="quantity">1</field>
         <field name="condition_range">categories.BASIC + categories.ALW</field>
         <field name="sequence">123</field>
-        <field name="category_id" ref="hr_payroll.COMP" />
+        <field name="category_id" ref="COMP" />
         <field name="parent_rule_id" ref="AC_SOL" />
     </record>
     <record id="AC_E_SOL" model="hr.salary.rule">
@@ -107,7 +107,7 @@ result = (((categories.BASIC + categories.ALW) - limit)*per_off_limit)
         <field name="quantity">1</field>
         <field name="condition_range">categories.BASIC + categories.ALW</field>
         <field name="sequence">123</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
         <field name="parent_rule_id" ref="AC_SOL" />
     </record>
     <record id="ALFA" model="hr.salary.rule">
@@ -144,7 +144,7 @@ if contract.employee_id.children + contract.employee_id.children_student &gt; mi
         >Old Age Insurance, Invalidity Insurance, Income Compensation</field>
         <field name="quantity">1</field>
         <field name="sequence">110</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
     </record>
     <record id="AVS_C" model="hr.salary.rule">
         <field name="amount_select">code</field>
@@ -160,7 +160,7 @@ result = (per*(categories.BASIC + categories.ALW))/100
         <field name="amount_percentage_base">categories.BASIC + categories.ALW</field>
         <field name="quantity">1</field>
         <field name="sequence">111</field>
-        <field name="category_id" ref="hr_payroll.COMP" />
+        <field name="category_id" ref="COMP" />
         <field name="parent_rule_id" ref="AVS" />
     </record>
     <record id="AVS_E" model="hr.salary.rule">
@@ -177,7 +177,7 @@ result = (per*(categories.BASIC + categories.ALW))/100
         <field name="amount_percentage_base">categories.BASIC + categories.ALW</field>
         <field name="quantity">1</field>
         <field name="sequence">111</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
         <field name="parent_rule_id" ref="AVS" />
     </record>
     <record id="FADMIN" model="hr.salary.rule">
@@ -214,7 +214,7 @@ result = -(per*(categories.BASIC + categories.ALW + categories.FALW))/100
         >categories.BASIC + categories.ALW + categories.FALW</field>
         <field name="quantity">1</field>
         <field name="sequence">160</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
     </record>
     <record id="LAA" model="hr.salary.rule">
         <field name="amount_select">fix</field>
@@ -225,7 +225,7 @@ result = -(per*(categories.BASIC + categories.ALW + categories.FALW))/100
         <field name="name">AI</field>
         <field name="quantity">1</field>
         <field name="sequence">140</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
     </record>
     <record id="LAA_C" model="hr.salary.rule">
         <field name="amount_select">code</field>
@@ -241,7 +241,7 @@ result = (per*(categories.BASIC + categories.ALW))/100
         <field name="amount_percentage_base">categories.BASIC + categories.ALW</field>
         <field name="quantity">1</field>
         <field name="sequence">141</field>
-        <field name="category_id" ref="hr_payroll.COMP" />
+        <field name="category_id" ref="COMP" />
         <field name="parent_rule_id" ref="LAA" />
     </record>
     <record id="LAA_E" model="hr.salary.rule">
@@ -258,7 +258,7 @@ result = (per*(categories.BASIC + categories.ALW))/100
         <field name="amount_percentage_base">categories.BASIC + categories.ALW</field>
         <field name="quantity">1</field>
         <field name="sequence">141</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
         <field name="parent_rule_id" ref="LAA" />
     </record>
     <record id="LCA" model="hr.salary.rule">
@@ -271,7 +271,7 @@ result = (per*(categories.BASIC + categories.ALW))/100
         <field name="note">Sickness Daily Allowance</field>
         <field name="quantity">1</field>
         <field name="sequence">150</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
     </record>
     <record id="LCA_C" model="hr.salary.rule">
         <field name="amount_select">code</field>
@@ -287,7 +287,7 @@ result = (per*(categories.BASIC + categories.ALW))/100
         <field name="amount_percentage_base">categories.BASIC + categories.ALW</field>
         <field name="quantity">1</field>
         <field name="sequence">151</field>
-        <field name="category_id" ref="hr_payroll.COMP" />
+        <field name="category_id" ref="COMP" />
         <field name="parent_rule_id" ref="LCA" />
     </record>
     <record id="LCA_E" model="hr.salary.rule">
@@ -304,7 +304,7 @@ result = (per*(categories.BASIC + categories.ALW))/100
         <field name="amount_percentage_base">categories.BASIC + categories.ALW</field>
         <field name="quantity">1</field>
         <field name="sequence">151</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
         <field name="parent_rule_id" ref="LCA" />
     </record>
     <record id="LPP" model="hr.salary.rule">
@@ -318,7 +318,7 @@ result = (per*(categories.BASIC + categories.ALW))/100
         <field name="quantity">1</field>
         <field name="condition_range">categories.BASIC + categories.ALW</field>
         <field name="sequence">130</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
     </record>
     <record id="LPP_C" model="hr.salary.rule">
         <field name="amount_select">code</field>
@@ -350,7 +350,7 @@ else:
         </field>
         <field name="quantity">1</field>
         <field name="sequence">132</field>
-        <field name="category_id" ref="hr_payroll.COMP" />
+        <field name="category_id" ref="COMP" />
         <field name="parent_rule_id" ref="LPP" />
     </record>
     <record id="LPP_E" model="hr.salary.rule">
@@ -383,7 +383,7 @@ else:
         </field>
         <field name="quantity">1</field>
         <field name="sequence">131</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
         <field name="parent_rule_id" ref="LPP" />
     </record>
     <record id="PC_F_VD" model="hr.salary.rule">
@@ -395,7 +395,7 @@ else:
         <field name="name">AS Families (VD)</field>
         <field name="quantity">1</field>
         <field name="sequence">165</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
     </record>
     <record id="PC_F_VD_C" model="hr.salary.rule">
         <field name="amount_select">code</field>
@@ -411,7 +411,7 @@ result = (per*(categories.BASIC + categories.ALW))/100
         <field name="amount_percentage_base">categories.BASIC + categories.ALW</field>
         <field name="quantity">1</field>
         <field name="sequence">166</field>
-        <field name="category_id" ref="hr_payroll.COMP" />
+        <field name="category_id" ref="COMP" />
         <field name="parent_rule_id" ref="PC_F_VD" />
     </record>
     <record id="PC_F_VD_E" model="hr.salary.rule">
@@ -428,7 +428,7 @@ result = (per*(categories.BASIC + categories.ALW))/100
         <field name="amount_percentage_base">categories.BASIC + categories.ALW</field>
         <field name="quantity">1</field>
         <field name="sequence">166</field>
-        <field name="category_id" ref="hr_payroll.DED" />
+        <field name="category_id" ref="DED" />
         <field name="parent_rule_id" ref="PC_F_VD" />
     </record>
     <record id="BASIC_CH" model="hr.salary.rule">
@@ -445,7 +445,7 @@ if payslip.wage_type == 'hour':
 else:
     result = contract.wage*payslip.working_rate/100
         </field>
-        <field name="category_id" ref="hr_payroll.BASIC" />
+        <field name="category_id" ref="BASIC" />
     </record>
     <record id="PAY_13" model="hr.salary.rule">
         <field name="appears_on_payslip">True</field>
@@ -459,7 +459,7 @@ if payslip.pay_13_salary:
     result = TOTAL_PROVISION_13 + PROVISION_13
 else:
     result = 0</field>
-        <field name="category_id" ref="hr_payroll.ALW" />
+        <field name="category_id" ref="ALW" />
     </record>
     <record id="CLEAR_PROVISION_13" model="hr.salary.rule">
         <field name="appears_on_payslip">False</field>
@@ -473,7 +473,7 @@ if payslip.pay_13_salary:
     result = TOTAL_PROVISION_13 + PROVISION_13
 else:
     result = 0</field>
-        <field name="category_id" ref="hr_payroll.COMP" />
+        <field name="category_id" ref="COMP" />
     </record>
     <record id="GROSS_CH" model="hr.salary.rule">
         <field name="amount_select">code</field>
@@ -487,7 +487,7 @@ else:
         >result = categories.BASIC + categories.ALW + categories.FALW</field>
         <field name="quantity">1</field>
         <field name="sequence">100</field>
-        <field name="category_id" ref="hr_payroll.GROSS" />
+        <field name="category_id" ref="GROSS" />
     </record>
     <record id="NET_CH" model="hr.salary.rule">
         <field name="amount_select">code</field>
@@ -501,7 +501,7 @@ else:
         >result = categories.BASIC + categories.ALW + categories.DED + categories.FALW</field>
         <field name="quantity">1</field>
         <field name="sequence">200</field>
-        <field name="category_id" ref="hr_payroll.NET" />
+        <field name="category_id" ref="NET" />
     </record>
     <record id="TOTAL_DED" model="hr.salary.rule">
         <field name="amount_select">code</field>

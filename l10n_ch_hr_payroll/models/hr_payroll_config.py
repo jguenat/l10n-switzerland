@@ -404,7 +404,6 @@ class HrPayrollConfig(models.TransientModel):
         ids_to_unlink.unlink()
 
     # save and create configs
-    @api.multi
     def save_configs(self):
         for config in self:
             # -Save codes-
