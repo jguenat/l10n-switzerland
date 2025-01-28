@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -170,11 +170,6 @@ msgstr ""
 #. module: l10n_ch_account_tags
 #: model:account.account.tag,name:l10n_ch_account_tags.account_tag_ch_120
 msgid "Stocks et prestations non facturées (CH_120)"
-msgstr ""
-
-#. module: l10n_ch_account_tags
-#: model:account.account.template,name:l10n_ch_account_tags.1_transfer_account_id
-msgid "Transfer"
 msgstr ""
 
 #. module: l10n_ch_account_tags
