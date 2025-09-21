@@ -17,6 +17,36 @@ class ResCurrencyRateProviderFTA(models.Model):
         ondelete={"fta": "set default"},
     )
 
+    def _get_supported_currencies(self):
+        """
+        Get the currencies suppported by https://www.rates.bazg.admin.ch
+        """
+        self.ensure_one()
+        if self.service != "fta":
+            return super()._get_supported_currencies()
+
+        data = requests.request(
+            "GET", "https://www.backend-rates.bazg.admin.ch", timeout=10
+        )
+        root = ET.fromstring(data.content)
+        namespace = {"ns": "https://www.backend-rates.ezv.admin.ch/xmldaily"}
+        currencies = self.env["res.currency"]
+        for devise in root.findall("ns:devise", namespace):
+            currencies |= currencies.search([("name", "=", devise.get("code").upper())])
+        return currencies.mapped("name")
+
+    def _process_rate(self, currency, rate):
+        """
+        The exange rates obtained from https://www.rates.bazg.admin.ch
+        are for selling, meaning we have to inverse the rate
+        """
+        self.ensure_one()
+
+        if self.service != "fta":
+            return super()._process_rate(currency, rate)
+
+        return 1 / float(rate)
+
     def _obtain_rates(self, base_currency, currencies, date_from, date_to):
         self.ensure_one()
         if self.service != "fta":
