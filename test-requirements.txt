@@ -1,3 +1,6 @@
 # For tests
 vcrpy==4.4.0
 xmlunittest==0.5.0
+#pain.01.01.09 bank-payment
+odoo-addon-account_banking_pain_base @ git+https://github.com/OCA/bank-payment.git@refs/pull/1578/head#subdirectory=setup/account_banking_pain_base
+odoo-addon-account_banking_sepa_credit_transfer @ git+https://github.com/OCA/bank-payment.git@refs/pull/1578/head#subdirectory=setup/account_banking_sepa_credit_transfer
